@@ -31,7 +31,7 @@ button{
 
 const PizzaForm = props => {
     
-    const { values, inputChange, checkboxChange, submit, errors } = props
+    const { values, inputChange, checkboxChange, submit, errors, netError } = props
     
     const onInputChange = evt => {
         const {name, value} = evt.target
@@ -116,6 +116,7 @@ const PizzaForm = props => {
                 <button>Submit</button>
             </div>
             <div>{errors.name}</div>
+            <div>{netError}</div>
         </StyledForm>
     )
 }

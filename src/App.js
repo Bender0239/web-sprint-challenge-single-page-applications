@@ -50,11 +50,12 @@ const initialErrors = {
   name: ''
 }
 
+
 const App = () => {
   
   const [ formValues, setFormValues ] = useState(initialFormValues)
   const [ formErrors, setFormErrors ] = useState(initialErrors)
-
+  const [ netError, setNetError ] = useState('')
 
   const inputChange = (name,value) => {
     if(name === 'name'){
@@ -94,7 +95,7 @@ const App = () => {
         setFormValues(initialFormValues)
       })
       .catch(err => {
-        console.log(err)
+        setNetError('Aye we have some network issues my dude!')
       })
   }
   const submit = () => {
@@ -134,6 +135,7 @@ const App = () => {
             checkboxChange={checkboxChange}
             submit={submit}
             errors={formErrors}
+            netError={netError}
           />
         </Route>
         <Route path='/'>
